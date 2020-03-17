@@ -1,0 +1,56 @@
+Laboratorium (A1)   -  Analiza cyklu życia Aktywności w aplikacji Android.
+
+Michał Birnbach
+242050
+
+Sprawozdanie
+
+
+1. Sekwencje komunikatów Toast:
+
+a. Kliknięcie programowego przycisku EXIT (w oknie aplikacji)
+
+onPause -> onStop -> onDestroy
+
+b. Kliknięcie sprzętowego przycisku BACK (na telefonie)
+
+onPause -> onStop -> onDestroy
+
+c. Kliknięcie sprzętowego przycisku HOME (na telefonie)
+
+onPause -> onStop
+
+d. Kliknięcie przycisku połączenia telefonicznego (CALL - zielona słuchawka)
+
+onPause -> onStop
+
+e. Przytrzymanie przycisku odłożenia słuchawki (HANG-UP -  czerwona słuchawka)
+
+onRestart -> onStart -> onResume
+
+By zadzwonić z do emulatora 1 z emulatora 2 wykorzystałem aplikację do połączeń 
+telefonicznych gdzie zamiast numeru telefonu podałem numer portu emulatora 1 (5554).
+Połączenie przychodzące miało numer (555) 521-5556 gdzie 4 ostatnie cyfry to numer portu
+emulatora 2.
+
+f. Otrzymaniu tekstowej wiadomości SMS (z innego emulatora lub telefonu)
+Otwarcie przychodzącej wiadomości powodowało sekwencję:
+
+onPause -> onStop
+
+Sam fakt dotarcia wiadomości nie prowokował reakcji ze strony aplikacji.
+
+g.Po otrzymaniu połączenia głosowego (z innego emulatora lub telefonu).
+
+Przychodzące połączenie nie powodowało żadnej sekwencji. Odrzucenie połączenia także
+nic nie powodowało. Odebranie połączenia powodowało reakcję jak w pkt. d.
+
+2. Sygnalizowanie zmian stanu aktywności.
+
+Działanie podstawowych metod widocznie jest w dołączonej aplikacji. 
+Niestety nie potrafiłem zmusić meotdy onSaveInstanceState() by zapisywała ostatnią
+wartość reprezentującą kolor tła. Wartość na pewno nie jest zapamiętywana po użyciu 
+przycisku BACK oraz programowego przycisku EXIT. 
+onSaveInstanceState() nie zapamiętuje niczego w przypadku zabicia aplikacji. 
+
+
